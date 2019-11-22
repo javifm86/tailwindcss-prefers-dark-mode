@@ -74,7 +74,57 @@ variants: {
   }
 ```
 
-You can check the full list of default variants in [Tailwind default config file][1].
+You can check the full
+
+## Use @apply to inline any existing utility classes in dark mode
+
+Just use `prefers-color-scheme` CSS media feature and apply Tailwind classes.
+
+```css
+.btn {
+  @apply font-bold py-2 px-4 rounded bg-red-500;
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn {
+    @apply bg-gray-500;
+  }
+}
+```
+
+## Customize prefix class name for variants
+
+`dark` is used as default prefix for variants generated. It´s possible to change `dark` for whatever you want, just pass any string as param. For example, with `prefers-dark`:
+
+```js
+module.exports = {
+  // ...
+
+  plugins: [
+    // ...
+    require('tailwindcss-prefers-dark-mode')('prefers-dark')
+  ]
+};
+```
+
+And variants must be named with the new prefix:
+
+```js
+variants: {
+  textColor: [
+    'responsive',
+    'hover',
+    'focus',
+    'group-hover',
+    'prefers-dark',
+    'prefers-dark:hover',
+    'prefers-dark:focus',
+    'prefers-dark:group-hover',
+    'focus-within',
+    'prefers-dark:focus-within'
+  ];
+}
+```
 
 [1]: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 [2]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme

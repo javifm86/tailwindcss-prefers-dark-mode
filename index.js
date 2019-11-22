@@ -1,33 +1,33 @@
 const postcss = require('postcss');
 
-module.exports = function() {
+module.exports = function(prefix = 'dark') {
   return function({ addVariant, e }) {
-    addVariant('dark', ({ container, separator }) => {
+    addVariant(prefix, ({ container, separator }) => {
       const variant = '';
       return getSelector({ container, separator, variant });
     });
 
-    addVariant('dark:hover', ({ container, separator }) => {
+    addVariant(`${prefix}:hover`, ({ container, separator }) => {
       const variant = 'hover';
       return getSelector({ container, separator, variant });
     });
 
-    addVariant('dark:focus', ({ container, separator }) => {
+    addVariant(`${prefix}:focus`, ({ container, separator }) => {
       const variant = 'focus';
       return getSelector({ container, separator, variant });
     });
 
-    addVariant('dark:active', ({ container, separator }) => {
+    addVariant(`${prefix}:active`, ({ container, separator }) => {
       const variant = 'active';
       return getSelector({ container, separator, variant });
     });
 
-    addVariant('dark:group-hover', ({ container, separator }) => {
+    addVariant(`${prefix}:group-hover`, ({ container, separator }) => {
       const variant = 'group-hover';
       return getSelector({ container, separator, variant });
     });
 
-    addVariant('dark:focus-within', ({ container, separator }) => {
+    addVariant(`${prefix}:focus-within`, ({ container, separator }) => {
       const variant = 'focus-within';
       return getSelector({ container, separator, variant });
     });
@@ -39,22 +39,22 @@ module.exports = function() {
       supportsRule.walkRules(rule => {
         switch (variant) {
           case 'focus':
-            rule.selector = `.${e(`dark:focus${separator}${rule.selector.slice(1)}`)}:focus`;
+            rule.selector = `.${e(`${prefix}:focus${separator}${rule.selector.slice(1)}`)}:focus`;
             break;
           case 'focus-within':
-            rule.selector = `.${e(`dark:focus-within${separator}${rule.selector.slice(1)}`)}:focus-within`;
+            rule.selector = `.${e(`${prefix}:focus-within${separator}${rule.selector.slice(1)}`)}:focus-within`;
             break;
           case 'hover':
-            rule.selector = `.${e(`dark:hover${separator}${rule.selector.slice(1)}`)}:hover`;
+            rule.selector = `.${e(`${prefix}:hover${separator}${rule.selector.slice(1)}`)}:hover`;
             break;
           case 'active':
-            rule.selector = `.${e(`dark:active${separator}${rule.selector.slice(1)}`)}:active`;
+            rule.selector = `.${e(`${prefix}:active${separator}${rule.selector.slice(1)}`)}:active`;
             break;
           case 'group-hover':
-            rule.selector = `.group:hover .${e(`dark:group-hover${separator}${rule.selector.slice(1)}`)}`;
+            rule.selector = `.group:hover .${e(`${prefix}:group-hover${separator}${rule.selector.slice(1)}`)}`;
             break;
           default:
-            rule.selector = `.${e(`dark${separator}${rule.selector.slice(1)}`)}`;
+            rule.selector = `.${e(`${prefix}${separator}${rule.selector.slice(1)}`)}`;
             break;
         }
       });
