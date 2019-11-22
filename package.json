@@ -1,0 +1,30 @@
+{
+  "name": "tailwindcss-prefers-dark-mode",
+  "version": "1.0.0",
+  "description": "Tailwind CSS plugin that adds variants for @media (prefers-color-scheme: dark)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javifm86/tailwindcss-prefers-dark-mode.git"
+  },
+  "keywords": [
+    "tailwind",
+    "tailwindcss",
+    "postcss",
+    "dark-mode",
+    "tailwindcss-plugin"
+  ],
+  "author": "Javier Fernández",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/javifm86/tailwindcss-prefers-dark-mode/issues"
+  },
+  "homepage": "https://github.com/javifm86/tailwindcss-prefers-dark-mode#readme",
+  "dependencies": {
+    "tailwindcss": "^1.1.3"
+  },
+  "devDependencies": {
+    "postcss": "^7.0.23",
+    "prettier": "1.19.1"
+  }
+}
