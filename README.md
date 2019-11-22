@@ -122,7 +122,7 @@ variants: {
     'prefers-dark:group-hover',
     'focus-within',
     'prefers-dark:focus-within'
-  ];
+  ]
 }
 ```
 
