@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-prefers-dark-mode",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Tailwind CSS plugin that adds variants for @media (prefers-color-scheme: dark)",
   "main": "index.js",
   "repository": {
