@@ -74,7 +74,7 @@ variants: {
   }
 ```
 
-You can check the full
+You can check the full list of default variants in [Tailwind default config file][1].
 
 ## Use @apply to inline any existing utility classes in dark mode
 
@@ -92,7 +92,7 @@ Just use `prefers-color-scheme` CSS media feature and apply Tailwind classes.
 }
 ```
 
-## Customize prefix class name for variants
+## Customize class name prefix for variants
 
 `dark` is used as default prefix for variants generated. It´s possible to change `dark` for whatever you want, just pass any string as param. For example, with `prefers-dark`:
 
