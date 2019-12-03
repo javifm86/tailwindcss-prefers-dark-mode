@@ -27,6 +27,9 @@ module.exports = {
 - `dark:hover`
 - `dark:focus`
 - `dark:active`
+- `dark:disabled`
+- `dark:odd`
+- `dark:even`
 - `dark:group-hover`
 - `dark:focus-within`
 
@@ -68,7 +71,11 @@ variants: {
       "dark:focus",
       "dark:group-hover",
       "focus-within",
-      "dark:focus-within"
+      "dark:focus-within",
+      "dark:odd",
+      "dark:even",
+      "dark:active",
+      "dark:disabled"
     ],
     borderStyle: ["responsive", "dark"]
   }
