@@ -22,6 +22,11 @@ module.exports = function(prefix = 'dark') {
       return getSelector({ container, separator, variant });
     });
 
+    addVariant(`${prefix}:disabled`, ({ container, separator }) => {
+      const variant = 'disabled';
+      return getSelector({ container, separator, variant });
+    });
+
     addVariant(`${prefix}:group-hover`, ({ container, separator }) => {
       const variant = 'group-hover';
       return getSelector({ container, separator, variant });
@@ -29,6 +34,16 @@ module.exports = function(prefix = 'dark') {
 
     addVariant(`${prefix}:focus-within`, ({ container, separator }) => {
       const variant = 'focus-within';
+      return getSelector({ container, separator, variant });
+    });
+
+    addVariant(`${prefix}:odd`, ({ container, separator }) => {
+      const variant = 'odd';
+      return getSelector({ container, separator, variant });
+    });
+
+    addVariant(`${prefix}:even`, ({ container, separator }) => {
+      const variant = 'even';
       return getSelector({ container, separator, variant });
     });
 
@@ -50,8 +65,17 @@ module.exports = function(prefix = 'dark') {
           case 'active':
             rule.selector = `.${e(`${prefix}:active${separator}${rule.selector.slice(1)}`)}:active`;
             break;
+          case 'disabled':
+            rule.selector = `.${e(`${prefix}:disabled${separator}${rule.selector.slice(1)}`)}:disabled`;
+            break;
           case 'group-hover':
             rule.selector = `.group:hover .${e(`${prefix}:group-hover${separator}${rule.selector.slice(1)}`)}`;
+            break;
+          case 'odd':
+            rule.selector = `.${e(`${prefix}:odd${separator}${rule.selector.slice(1)}`)}:nth-child(odd)`;
+            break;
+          case 'even':
+            rule.selector = `.${e(`${prefix}:even${separator}${rule.selector.slice(1)}`)}:nth-child(even)`;
             break;
           default:
             rule.selector = `.${e(`${prefix}${separator}${rule.selector.slice(1)}`)}`;
