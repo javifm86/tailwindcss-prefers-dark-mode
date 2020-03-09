@@ -1,6 +1,6 @@
 const postcss = require('postcss');
 
-module.exports = function(prefix = 'dark') {
+module.exports = function(prefix = 'dark', activator = null) {
   return function({ addVariant, e }) {
     addVariant(prefix, ({ container, separator }) => {
       const variant = '';
@@ -80,6 +80,9 @@ module.exports = function(prefix = 'dark') {
           default:
             rule.selector = `.${e(`${prefix}${separator}${rule.selector.slice(1)}`)}`;
             break;
+        }
+        if(activator !== null){
+          rule.selector = `.${activator} ${rule.selector}`;
         }
       });
     }

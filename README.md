@@ -133,5 +133,28 @@ variants: {
 }
 ```
 
+
+## Customizing an Activator Class
+Specifying an activator in the constructor. The default empty. If you plan to not use an activator skip over this section.
+```js
+module.exports = {
+  // ...
+
+  plugins: [
+    // ...
+    require('tailwindcss-prefers-dark-mode')('dark', 'dark')
+  ]
+};
+```
+
+Specifying an activator will require that these generated classes have the activator class on the `HTML` or `body` or `parent` tag. The presence of the dark class on the body will make the dark classes active. Allowing for you to easily switch between a light and dark theme. 
+
+```html
+<body class="dark"> 
+  <div class="bg-gray-100 text-black dark:bg-gray-900 dark:text-white">I'm a little teapot</div>
+</body>
+```
+
+
 [1]: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 [2]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
