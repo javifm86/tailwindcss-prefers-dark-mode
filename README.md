@@ -66,6 +66,7 @@ require('tailwindcss-prefers-dark-mode')({
 - `dark:even`
 - `dark:group-hover`
 - `dark:focus-within`
+- `dark:placeholder`
 
 ```html
 <div class="bg-gray-100 dark:bg-gray-800 border-t-4 border-green-500">
@@ -111,7 +112,8 @@ variants: {
       "dark:active",
       "dark:disabled"
     ],
-    borderStyle: ["responsive", "dark"]
+    borderStyle: ["responsive", "dark"],
+    placeholderColor: ['responsive', 'focus', 'dark:placeholder']
   }
 ```
 
@@ -197,6 +199,19 @@ variants: {
   ];
 }
 ```
+
+## Alternatives
+
+If you're looking for a more complex approach, a different kind of configuration, or just want to know the alternatives, here is a list that you may find useful:
+
+- [`tailwindcss-theme-variants`](https://github.com/JakeNavith/tailwindcss-theme-variants) — A complete variant-based theming plugin.
+- [`tailwindcss-multi-theme`](https://github.com/estevanmaito/tailwindcss-multi-theme) — A simple, yet good alternative if you want to stick to variants.
+- [`tailwindcss-dark-mode`](https://github.com/ChanceArthur/tailwindcss-dark-mode) - Another variant alternative.
+- [`tailwindcss-darkmode`](https://github.com/danestves/tailwindcss-darkmode) - Another variant alternative.
+- [`tailwindcss-theme-swapper`](https://github.com/crswll/tailwindcss-theme-swapper) - Similar to `tailwindcss-theming`, but lower-level, and without the variant functionality.
+- [Manually](https://tailwindcss.com/docs/breakpoints/#dark-mode), by adding a `screens` media query in Tailwind's configuration.
+
+> A more complete comparison of the different theming plugins can be found [here](https://github.com/JakeNavith/tailwindcss-theme-variants/blob/main/README.md#alternatives).
 
 [1]: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 [2]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
