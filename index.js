@@ -77,6 +77,11 @@ module.exports = function(options) {
       return getSelector({ container, separator, variant, modifySelectors });
     });
 
+    addVariant(`${settings.prefix}:placeholder`, ({ container, separator, modifySelectors }) => {
+      const variant = 'placeholder';
+      return getSelector({ container, separator, variant, modifySelectors });
+    });
+
     /**
      * Bridge function that returns media query selector or activator CSS class selector.
      */
@@ -124,6 +129,9 @@ module.exports = function(options) {
           case 'even':
             rule.selector = `.${e(`${settings.prefix}:even${separator}${rule.selector.slice(1)}`)}:nth-child(even)`;
             break;
+          case 'placeholder':
+            rule.selector = `.${e(`${settings.prefix}${separator}`)}${rule.selector.slice(1)}`;
+            break;
           default:
             rule.selector = `.${e(`${settings.prefix}${separator}${rule.selector.slice(1)}`)}`;
             break;
@@ -157,6 +165,8 @@ module.exports = function(options) {
             return `${settings.className} .${e(`${settings.prefix}:odd${separator}${className}`)}:nth-child(odd)`;
           case 'even':
             return `${settings.className} .${e(`${settings.prefix}:even${separator}${className}`)}:nth-child(even)`;
+          case 'placeholder':
+            return `${settings.className} .${e(`${settings.prefix}${separator}${className}`)}::placeholder`;
           default:
             return `${settings.className} .${e(`${settings.prefix}${separator}${className}`)}`;
         }
